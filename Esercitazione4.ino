@@ -55,7 +55,7 @@ pinMode(6, OUTPUT);
 pinMode(4, OUTPUT);
 pinMode(sensorOut, INPUT);
 digitalWrite(S0,LOW);
-digitalWrite(S1,HIGH);                 //Scaling della frequenza di output al 2%
+digitalWrite(S1,HIGH);             
 Serial.begin(9600);
 }
 
@@ -109,9 +109,9 @@ void ChangeFilter(String filter){
 
 void Calibration() {
     int j;
-    Serial.println("Metti il cartoncino bianco...");
+    Serial.println("Put the white paper on the sensor!");
     delay(3000);
-    Serial.println("Calibrando..");
+    Serial.println("Calibration..");
     delay(1000);
     Ftot=F_Sum_b+F_Sum_r+F_Sum_g;
     coeff_r=(33.33)/F_Sum_r;
@@ -137,7 +137,7 @@ void Measure() {
   }
   F_Sum_r = F_Sum_r / 20;
   if(F_Sum_r >12) {
-    Serial.println("Condizione di saturazione, allontana il cartoncino dal sensore!");
+    Serial.println("Saturation error, take distance from the sensor.");
     digitalWrite(4,HIGH);
     sat=true;
   }
@@ -158,7 +158,7 @@ void Measure() {
   }
   F_Sum_g = F_Sum_g / 20;
   if(F_Sum_g>12) {
-    Serial.println("Condizione di saturazione, allontana il cartoncino dal sensore!");
+    Serial.println("Saturation error, take distance from the sensor.");
     digitalWrite(4,HIGH);
     sat=true;
   }
@@ -179,7 +179,7 @@ void Measure() {
   }
   F_Sum_b = F_Sum_b / 20;
   if(F_Sum_b>12) {
-    Serial.println("Condizione di saturazione, allontana il cartoncino dal sensore!");
+    Serial.println("Saturation error, take distance from the sensor.");
     digitalWrite(4,HIGH);
     sat=true;
   }
