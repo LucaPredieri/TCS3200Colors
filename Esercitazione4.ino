@@ -113,11 +113,6 @@ void Calibration() {
     delay(3000);
     Serial.println("Calibrando..");
     delay(1000);
-    for(j=0; j<20;j++){
-    Measure();
-    j++;
-    }
-    j=0;
     Ftot=F_Sum_b+F_Sum_r+F_Sum_g;
     coeff_r=(33.33)/F_Sum_r;
     coeff_g=(33.33)/F_Sum_g;
